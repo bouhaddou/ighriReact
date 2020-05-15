@@ -45,27 +45,37 @@ const Navbar = ({cartNav}) => {
 		</div>
 	</div>
 </div>
-    <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" id="ftco-navbar">
+    <nav className="navbar navbar-expand-lg navbar-dark ftco_navbar ftco-navbar-light" >
 	    <div className="container">
 	      <Link className="navbar-brand txt-color" to="/">SAFRAN 
 		  <img style={{ width:50, height:40,position:"relative",top:-15 }} src="./logo.png" /> TALIOUINE</Link>
-	      <button className="navbar-toggler" type="button" data-toggle="collapse" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+	      <button className="navbar-toggler" type="button" data-target="#navbarSupportedContentA" data-toggle="collapse" aria-controls="navbarSupportedContentA" aria-expanded="false" aria-label="Toggle navigation">
 	        <span className="oi oi-menu"></span> Menu
 	      </button>
 
-	      <div className="collapse navbar-collapse" id="ftco-nav">
+	      <div className="collapse navbar-collapse" id="navbarSupportedContentA">
 	        <ul className="navbar-nav ml-auto">
-	          <li className="nav-item active"><Link to="/" className="nav-link">Accueil</Link></li>
+	          <li className="nav-item active">
+				  <Link to="/" className="nav-link">Accueil</Link></li>
 	          <li className="nav-item dropdown">
-			  <a className="nav-link dropdown-toggle" href="#" id="dropdown04" 
-			  	data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop
-			  </a>
-              <div className="dropdown-menu" aria-labelledby="dropdown04">
-              	<Link className="dropdown-item" to="/produits" >Shop</Link>
-                <Link className="dropdown-item" to="/cart">Cart</Link>
-              </div>
-            </li>
-	          <li className="nav-item"> <Link  to="/Produits" className="nav-link">About</Link></li>
+				<a className="nav-link dropdown-toggle" href="#" id="navbarDropdown" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Shop
+				</a>
+				<div className="dropdown-menu" aria-labelledby="navbarDropdown">
+					<Link className="dropdown-item" to="/produits" >Shop</Link>
+					<Link className="dropdown-item" to="/cart">Cart</Link>
+				</div>
+              </li>
+			  <li className="nav-item dropdown">
+				<a className="nav-link dropdown-toggle" href="#" id="dropdown04" 
+					data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">IGHRI
+				</a>
+				<div className="dropdown-menu" aria-labelledby="dropdown04">
+					<Link className="dropdown-item" to="/presentation" >Présentation</Link>
+					<Link className="dropdown-item" to="/cart">Cart</Link>
+				</div>
+              </li>
+	          <li className="nav-item"> <Link  to="/Produits" className="nav-link">IGHRI</Link></li>
 	          <li className="nav-item"><a href="blog.html" className="nav-link">Blog</a></li>
 	          <li className="nav-item"><a href="contact.html" className="nav-link">Contact</a></li>
 	          <li className="nav-item cta cta-colored">
@@ -79,6 +89,7 @@ const Navbar = ({cartNav}) => {
 	      </div>
 	    </div>
 	  </nav>
+
     </> );
 }
  

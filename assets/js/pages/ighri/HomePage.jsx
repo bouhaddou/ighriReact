@@ -3,6 +3,8 @@ import Slider from './../../Components/ighri/Slider'
 import ProduitsApi from '../../services/ProduitsApi';
 import Produit from '../shop/produit';
 import { toast } from 'react-toastify';
+import SendEmail from '../../Components/ighri/SendEmail';
+import { Link } from 'react-router-dom';
 
 const HomePage  = ({setCartNav}) => {
 	const [produits,setProduits] = useState({});
@@ -81,6 +83,7 @@ return (
     </div>
 </section>
 <section className="ftco-section ftco-no-pb ftco-no-pt bg-light mt-3">
+<div className="w-100 " style={{ backgroundImage: `url('bg.png')`  }} >
 	<div className="container">
 		<div className="row">
 			<div className="col-md-5 p-md-4 img img-2 d-flex justify-content-center align-items-center" style={{ backgroundImage: `url('logo.png')` }}  >
@@ -109,6 +112,7 @@ return (
 			</div>
 		</div>
 	</div>
+</div>
 </section>
     <section className="ftco-section">
     	<div className="container">
@@ -134,13 +138,16 @@ return (
     	</div>
     </section>
     <section className="ftco-section ftco-no-pb ftco-no-pt bg-light mt-3">
+	<div className="w-100 " style={{ backgroundImage: `url('bg.png')`  }} >
 	<div className="container">
 		<div className="row">
-			<div className="col-md-5 p-md-4 img img-2 d-flex justify-content-center align-items-center"  style={{ backgroundImage: `url('fisteval.png')` }}>
-				<a href="/post/vedio" className="icon popup-vimeo d-flex justify-content-center align-items-center">
+			<div className="col-md-5 p-md-4 img img-2 d-flex justify-content-center align-items-center"  
+			style={{ backgroundImage: `url('fisteval.png')` }}>
+				<Link to="/ShowPosts" className="icon popup-vimeo d-flex justify-content-center align-items-center">
 					<span className="icon-play"></span>
-				</a>
+				</Link>
 			</div>
+			
 			<div className="col-md-7 py-4 wrap-about pb-md-5 " >
 				<div className="heading-section-bold mb-4 mt-md-5">
 					<div className="ml-md-0 text-center">
@@ -163,6 +170,7 @@ Contribuer au Développement Touristiques de la région de Taliouine.
 				</div>
 			</div>
 		</div>
+	</div>
 	</div>
 </section>
 <section className="ftco-section ftco-category ftco-no-pt mt-5">
@@ -214,24 +222,7 @@ Contribuer au Développement Touristiques de la région de Taliouine.
 				</div>
 			</div>
 		</section>
-        <section className="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-            <div className="container py-4">
-                <div className="row d-flex justify-content-center py-5">
-                <div className="col-md-6">
-                    <h2  className="mb-0">Subcribe to our Newsletter</h2>
-                    <span>Get e-mail updates about our latest shops and special offers</span>
-                </div>
-                <div className="col-md-6 d-flex align-items-center">
-                    <form action="#" className="subscribe-form">
-                    <div className="form-group d-flex">
-                        <input type="text" className="form-control" placeholder="Enter email address"/>
-                        <input type="submit" value="Subscribe" className="submit px-3"/>
-                    </div>
-                    </form>
-                </div>
-                </div>
-            </div>
-        </section>
+		<SendEmail />
         </>
      );
 }}

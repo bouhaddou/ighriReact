@@ -42,10 +42,13 @@ class CreateMediaObjectAction
     public function __invoke(Request $request)
     {
        $avatar = new Avatar();
+      
        $form = $this->formfactory->create( AvatarType::class, $avatar);
        $form->handleRequest($request);
        if($form->isValid() && $form->isSubmitted())
        {
+            $typefile=$request->files->get('file')->getMimeType();
+            $avatar->setTypeFile($typefile);
             $this->entityManager->persist(($avatar));
             $this->entityManager->flush();
             $avatar->setFile(null);

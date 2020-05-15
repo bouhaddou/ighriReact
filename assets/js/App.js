@@ -25,9 +25,12 @@ import PostPage from './pages/admin/post/PostPage';
 import PostsPage from './pages/admin/post/PostsPage';
 import ShowPost from './pages/admin/post/ShowPost';
 import dashboardPage from './pages/admin/dashboardPage'
-import { ToastContainer,toast } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Cart from './pages/shop/Cart';
-require('../css/app.css');
+import Chekout from './pages/shop/Chekout';
+import presentation from './pages/ighri/presentation';
+
 
 LoginApi.setup();
 
@@ -68,8 +71,10 @@ const App = () => {
                 {!isAuthenticated && <Route  path="/Produits" render={props=>( <Produits setCartNav={setCartNav}   {...props} /> )} />}
                 {!isAuthenticated && <Route path="/ProductInfo/:id" render={props=> { return <ProductInfo setCartNav={setCartNav} {...props} /> }} />}
                 {!isAuthenticated &&<Route path="/Cart" render={props=>{ return <Cart setCartNav={setCartNav}   {...props} />  }} /> }
-                {/*{!isAuthenticated && <Route path="/checkout" component={Checkout} />}
-                {!isAuthenticated && <Route path="/contact" component={Contact} />}
+                {!isAuthenticated && <Route path="/checkout" component={Chekout} />}
+                {!isAuthenticated && <Route path="/presentation" component={presentation} />}
+                {!isAuthenticated && <Route path="/ShowPosts/:id" component={ShowShops} />}
+               {/* {!isAuthenticated && <Route path="/contact" component={Contact} />}
                 {!isAuthenticated && <Route path="/blogPage" component={BlogPage} /> } */}
                 {!isAuthenticated && <Route path="/" render={props=>{return <HomePage  setCartNav={setCartNav}  {...props} /> }} /> }
                 <div className="content-wrapper">
@@ -91,9 +96,10 @@ const App = () => {
                    </Switch>
                 </div>
             </Switch>
+            <ToastContainer position={toast.POSITION.BOTTOM_LEFT}/>
             {!isAuthenticated &&<Footer />}
             {isAuthenticated && <AdminFooter />}
-        <ToastContainer position={toast.POSITION.BOTTOM_LEFT}/>
+            
         </HashRouter>
         </div>
         {/* </I18nProvider> */}

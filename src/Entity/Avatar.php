@@ -49,11 +49,6 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
      * @Vich\UploadableField(mapping="avatars", fileNameProperty="filePath")
      * @Groups({"media_object_read","media_object","shops_read"})
      * @Assert\NotBlank(message="Aucune image n'a été trouvée")
-     * @Assert\File(
-     *     maxSize = "3072k",
-     *     mimeTypes = {"image/jpeg", "image/png"},
-     *     mimeTypesMessage = "Please upload a valid Image"
-     * )
      */
     public $file;
 
@@ -64,6 +59,14 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
      * @Groups({"media_object_read","media_object","shops_read"})
      */
     public $filePath;
+
+    /**
+     * @var string|null
+     *
+     * @ORM\Column(nullable=true)
+     * @Groups({"media_object_read","media_object","shops_read"})
+     */
+    public $typeFile;
 
 
 
@@ -87,5 +90,14 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
     public function getFilePah()
     {
         return $this->filePath;
+    }
+
+    public function setTypeFile($typeFile)
+    {
+        return 'avatars/' . $this->typeFile = $typeFile;
+    }
+    public function getTypeFile()
+    {
+        return $this->typeFile;
     }
 }

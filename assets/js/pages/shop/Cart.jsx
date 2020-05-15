@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { toast } from 'react-toastify';
 import { Link } from 'react-router-dom';
+import SendEmail from '../../Components/ighri/SendEmail';
 
 const Cart =  ({setCartNav}) => {
     const [cart, setCart] = useState({});
@@ -157,66 +158,49 @@ const Cart =  ({setCartNav}) => {
     			</div> 
     			 <div className="col-lg-4 mt-5 cart-wrap "> 
     				    <div className="cart-total mb-3">
-                            <h3>Estimate shipping and tax</h3>
-                            <p>Enter your destination to get a shipping estimate</p> 
-                            <form action="#" className="info"> 
-                                <div className="form-group">
-                                    <label htmlFor="">Country</label>
-                                    <input type="text" className="form-control text-left px-3" placeholder=""/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="country">State/Province</label>
-                                    <input type="text" className="form-control text-left px-3" placeholder=""/>
-                                </div>
-                                <div className="form-group">
-                                    <label htmlFor="country">Zip/Postal Code</label>
-                                    <input type="text" className="form-control text-left px-3" placeholder=""/>
-                                </div> 
-                            </form>
-                            </div>
-                            <p><a href="checkout.html" className="btn btn-primary py-3 px-4">Estimate</a></p>
+                    <h3>Estimate shipping and tax</h3>
+                    <p>Enter your destination to get a shipping estimate</p> 
+                    <form action="#" className="info"> 
+                        <div className="form-group">
+                            <label htmlFor="">Country</label>
+                            <input type="text" className="form-control text-left px-3" placeholder=""/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="country">State/Province</label>
+                            <input type="text" className="form-control text-left px-3" placeholder=""/>
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="country">Zip/Postal Code</label>
+                            <input type="text" className="form-control text-left px-3" placeholder=""/>
                         </div> 
-                        <div className="col-lg-4 mt-5 cart-wrap ">
-                            <div className="cart-total mb-3">
-                                <h3>Cart Totals</h3>
-                                <p className="d-flex">
-                                    <span>Subtotal</span>
-                                    <span> {total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
-                                </p>
-                                <p className="d-flex">
-                                    <span>Delivery</span>
-                                    <span>$0.00</span>
-                                </p>
-                                <hr/>
-                                <p className="d-flex total-price">
-                                    <span>Total</span>
-                                    <span>{total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} </span>
-                                </p>
-                            </div>
-                            <p><a href="checkout.html" className="btn btn-primary py-3 px-4">Proceed to Checkout</a></p>
-                        </div> 
+                    </form>
+                    </div>
+                    <p><a href="checkout.html" className="btn btn-primary py-3 px-4">Estimate</a></p>
+                </div> 
+                <div className="col-lg-4 mt-5 cart-wrap ">
+                    <div className="cart-total mb-3">
+                        <h3>Cart Totals</h3>
+                        <p className="d-flex">
+                            <span>Subtotal</span>
+                            <span> {total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')}</span>
+                        </p>
+                        <p className="d-flex">
+                            <span>Delivery</span>
+                            <span>$0.00</span>
+                        </p>
+                        <hr/>
+                        <p className="d-flex total-price">
+                            <span>Total</span>
+                            <span>{total.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, '$&,')} </span>
+                        </p>
+                    </div>
+                    <p><Link to="/checkout" className="btn btn-primary py-3 px-4">Proceed to Checkout
+                    </Link></p>
+                </div> 
     		    </div>
 			</div> 
 		</section>
-
-	<section className="ftco-section ftco-no-pt ftco-no-pb py-5 bg-light">
-      <div className="container py-4">
-        <div className="row d-flex justify-content-center py-5">
-          <div className="col-md-6">
-          	<h2  className="mb-0">Subcribe to our Newsletter</h2>
-          	<span>Get e-mail updates about our latest shops and special offers</span>
-          </div>
-          <div className="col-md-6 d-flex align-items-center">
-            <form action="#" className="subscribe-form">
-              <div className="form-group d-flex">
-                <input type="text" className="form-control" placeholder="Enter email address"/>
-                <input type="submit" value="Subscribe" className="submit px-3"/>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </section>
+    <SendEmail />
     </> );
 }
  }
